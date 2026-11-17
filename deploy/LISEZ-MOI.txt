@@ -1,0 +1,19 @@
+Révision DEMS, version privée : revisions-dems.nucleatlas.org
+
+Contenu
+  revisions-dems-site.tar.gz       le site (à fabriquer : tar -czf revisions-dems-site.tar.gz -C site .) (programme, questions DEMS/pré-DEMS, mes cours, PDF du 14 novembre)
+  nginx-revisions-dems.conf        configuration nginx avec mot de passe (accès privé)
+  installer-sur-le-vps.sh          installation en une commande
+
+Étapes
+  1. DNS : créer un enregistrement A  revisions-dems.nucleatlas.org  ->  adresse IP du VPS.
+  2. Copier les 3 fichiers sur le VPS, dans un même dossier, par exemple :
+       scp revisions-dems-site.tar.gz nginx-revisions-dems.conf installer-sur-le-vps.sh utilisateur@IP_DU_VPS:/tmp/rdems/
+  3. Sur le VPS :
+       cd /tmp/rdems && sudo bash installer-sur-le-vps.sh MON_IDENTIFIANT
+     (le mot de passe est demandé à l'écran ; le script active aussi HTTPS avec certbot)
+  4. Ouvrir https://revisions-dems.nucleatlas.org, saisir l'identifiant et le mot de passe, puis créer le profil du site
+     (le profil et les cases cochées restent dans le navigateur de chaque appareil ; « Réglages et sauvegarde » permet de les transférer).
+
+Mise à jour ultérieure : refaire seulement l'étape 2 puis, sur le VPS :
+       sudo tar -xzf /tmp/rdems/revisions-dems-site.tar.gz -C /var/www/revisions-dems

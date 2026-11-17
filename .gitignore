@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+*.tar.gz
+*.zip
+.env
+*.pem
+id_*
+.htpasswd*
+node_modules/
+__pycache__/

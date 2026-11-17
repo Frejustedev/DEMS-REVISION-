@@ -1,0 +1,1 @@
+Lis CLAUDE.md puis mets en ligne le site privé sur mon VPS à l'adresse revisions-dems.nucleatlas.org en suivant « Mettre en ligne sur le VPS ». Demande-moi l'adresse du VPS, l'utilisateur SSH et l'identifiant à créer pour le mot de passe nginx, et laisse htpasswd me demander le mot de passe. Vérifie ensuite que la page répond en HTTPS avec mot de passe.
