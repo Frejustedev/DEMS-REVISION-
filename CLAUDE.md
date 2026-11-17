@@ -1,4 +1,4 @@
-# Révision DEMS, version privée (revisions-dems.nucleatlas.org)
+# Révision DEMS, version privée (dems.nucleatlas.org)
 
 Site statique de révision pour le DEMS de médecine nucléaire (examen du 6 décembre 2026), propriétaire : Dr Frejuste Agboton.
 Copie PRIVÉE du site public « Révision DEMS » (dépôt Frejustedev/revision-dems, qui ne doit pas être modifié pour ça), avec en plus :
@@ -36,14 +36,20 @@ python3 -I outils/rapprocher_plans.py site/fichiers/donnees.js site/fichiers/ban
 Niveaux : D = DEMS, P = pré-DEMS (affichés par défaut), C = contrôle pré-thèse, R = résidanat, A = autres.
 Les questions sans corrigé reçoivent un plan type des cours seulement si la similarité dépasse 0,30.
 
-## Mettre en ligne sur le VPS
-Adresse : https://revisions-dems.nucleatlas.org, nginx avec authentification basique (`auth_basic`), HTTPS par certbot. Le DNS (enregistrement A vers l'IP du VPS) doit exister.
+## État constaté le 17 novembre 2026 à 18 h 28
+- Le site est DÉJÀ en ligne sur https://dems.nucleatlas.org, servi par **Caddy** derrière Cloudflare (pas par nginx : `deploy/nginx-*.conf` et `installer-sur-le-vps.sh` ne s'appliquent pas tels quels ; garder seulement l'idée).
+- La version en ligne est ANCIENNE (`VERSION` du service worker `prive-20261117b`) : il manque `fichiers/pdf/mes-cours/cours-originaux/PTH_parathyroides.pdf` et le programme actualisé. À redéployer depuis `site/`.
+- **Aucun mot de passe : le site est ouvert à toute personne qui connaît l'adresse** (seul `noindex` est actif). À corriger en priorité : ajouter un bloc `basic_auth` dans le bloc du site du Caddyfile (identifiant choisi par l'utilisateur ; générer le hachage sur le VPS avec `caddy hash-password`, ne jamais écrire le mot de passe dans un fichier ni dans la conversation), puis `caddy validate` et `systemctl reload caddy`. Vérifier ensuite qu'une requête sans identifiants renvoie 401.
+- Pour mettre à jour : `tar -czf` de `site/`, copie sur le VPS, extraction dans le dossier racine du site Caddy (le repérer dans le Caddyfile, ne toucher à aucun autre site).
+
+## Mettre en ligne sur le VPS (méthode nginx d'origine, à adapter à Caddy)
+Adresse : https://dems.nucleatlas.org, nginx avec authentification basique (`auth_basic`), HTTPS par certbot. Le DNS (enregistrement A vers l'IP du VPS) doit exister.
 Première installation, sur le VPS (voir `deploy/LISEZ-MOI.txt`) :
 1. Fabriquer l'archive : `tar -czf revisions-dems-site.tar.gz -C site .`
 2. Copier sur le VPS : `scp revisions-dems-site.tar.gz deploy/nginx-revisions-dems.conf deploy/installer-sur-le-vps.sh UTILISATEUR@IP_DU_VPS:/tmp/rdems/`
 3. Sur le VPS : `cd /tmp/rdems && sudo bash installer-sur-le-vps.sh IDENTIFIANT` (le mot de passe est demandé à l'écran).
 Mise à jour : refaire l'étape 1 et 2 (archive seule), puis sur le VPS `sudo tar -xzf /tmp/rdems/revisions-dems-site.tar.gz -C /var/www/revisions-dems`. Après la mise à jour, ouvrir le site deux fois (le service worker installe la nouvelle version au second chargement).
-L'adresse du VPS et l'utilisateur SSH ne sont pas dans ce dépôt : demander à l'utilisateur (les notes de migration sont dans `Bureau\kit-migration-vps` et `Bureau\MIGRATION VPS OVH`, à lire seulement s'il l'autorise). Ne pas modifier les autres sites hébergés sur ce VPS : ne toucher que `/etc/nginx/sites-available/revisions-dems.nucleatlas.org`, son lien dans `sites-enabled`, `/etc/nginx/.htpasswd-revisions-dems` et `/var/www/revisions-dems`. Toujours `nginx -t` avant `systemctl reload nginx`.
+L'adresse du VPS et l'utilisateur SSH ne sont pas dans ce dépôt : demander à l'utilisateur (les notes de migration sont dans `Bureau\kit-migration-vps` et `Bureau\MIGRATION VPS OVH`, à lire seulement s'il l'autorise). Ne pas modifier les autres sites hébergés sur ce VPS : ne toucher que `/etc/nginx/sites-available/dems.nucleatlas.org`, son lien dans `sites-enabled`, `/etc/nginx/.htpasswd-revisions-dems` et `/var/www/revisions-dems`. Toujours `nginx -t` avant `systemctl reload nginx`.
 
 ## Vérifications avant de livrer
 - Les trois pages s'ouvrent sans erreur dans la console : `#/monprogramme`, `#/banque`, `#/mescours`.
