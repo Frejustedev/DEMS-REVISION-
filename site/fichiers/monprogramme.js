@@ -9,10 +9,10 @@
     debut: '2026-11-17',
     jours: [
       { d: '2026-11-17', lab: 'Mardi 17 novembre', segs: [
-        { id: 's01', bt: ['Parathyroide (PTH)', 'Surrenale'], h: '18 h – 00 h', t: 'Parathyroïdes (PTH) et corticosurrénales', dom: 'e', oral: true,
-          ch: ['18 h – 19 h 30 : le cours « L’hyperparathyroïdie » (primaire, secondaire, tertiaire, traitement) et le tableau « situation clinique → examen de choix » de la fiche « Indications »', '19 h 30 – 20 h : pause', '20 h – 21 h : la partie parathyroïdes des traceurs endocriniens et des paramètres d’acquisition, puis les pièges (artefacts, faux positifs et faux négatifs)', '21 h – 22 h : corticosurrénales (scintigraphie à l’iode 131-norcholestérol, partie II de la fiche « Indications ») et cas pratique de 2021', '22 h – 23 h : une question longue de DEMS en 40 minutes sans fiches (au choix : 2022, méthodologie et récidives, ou 2010, intérêt et place de l’exploration isotopique), puis correction', '23 h – 00 h : oral avec Claude'],
-          q: ['Scintigraphie parathyroïdienne : mécanisme du sestamibi marqué au technétium 99m, double phase, soustraction, TEMP/TDM (tomographie par émission monophotonique couplée à la tomodensitométrie), indications', 'Imagerie de l’hyperparathyroïdie primaire puis secondaire : faux négatifs et faux positifs', 'Place de la scintigraphie dans la récidive ou la persistance après chirurgie, et chirurgie radioguidée', 'Corticosurrénales : quel examen pour l’adénome de Conn, le syndrome de Cushing, le phéochromocytome ?'],
-          f: ['pth-01', 'traceurs-10', 'acquisition-07', 'indications-06', 'communs-10', 'ctc-01'], th: ['ctc'], pdf: [['Cours d’origine : parathyroïdes (PTH)', ORIG + 'PTH_parathyroides.pdf']], lk: [['Cas clinique PTH de 2021 (DEMS)', '#/banque?t=Parathyroide%20(PTH)&n=D&q=66%20ans'], ['Question PTH de 2022 (DEMS)', '#/banque?t=Parathyroide%20(PTH)&n=D&q=recidives']] }
+        { id: 's01', bt: ['Parathyroide (PTH)'], h: '18 h – 00 h', t: 'Parathyroïdes (PTH)', dom: 'e', oral: true,
+          ch: ['18 h – 19 h 30 : le cours « L’hyperparathyroïdie » (primaire, secondaire, tertiaire, traitement) et le tableau « situation clinique → examen de choix » de la fiche « Indications »', '19 h 30 – 20 h : pause', '20 h – 21 h : la partie parathyroïdes des traceurs endocriniens et des paramètres d’acquisition, puis les pièges (artefacts, faux positifs et faux négatifs)', '21 h – 22 h : cas pratique de 2021 écrit de A à Z, puis persistance ou récidive après chirurgie et chirurgie radioguidée', '22 h – 23 h : une question longue de DEMS en 40 minutes sans fiches (au choix : 2022, méthodologie et récidives, ou 2010, intérêt et place de l’exploration isotopique), puis correction', '23 h – 00 h : oral avec Claude'],
+          q: ['Scintigraphie parathyroïdienne : mécanisme du sestamibi marqué au technétium 99m, double phase, soustraction, TEMP/TDM (tomographie par émission monophotonique couplée à la tomodensitométrie), indications', 'Imagerie de l’hyperparathyroïdie primaire puis secondaire : faux négatifs et faux positifs', 'Choix de l’examen selon la situation : primaire, secondaire, tertiaire, persistante ou récidivante', 'Place de la scintigraphie dans la récidive ou la persistance après chirurgie, et chirurgie radioguidée'],
+          f: ['pth-01', 'traceurs-10', 'acquisition-07', 'indications-06', 'communs-10'], th: ['pth'], pdf: [['Cours d’origine : parathyroïdes (PTH)', ORIG + 'PTH_parathyroides.pdf']], lk: [['Ma section PTH (déroulé, critères, questions)', '#/pth'], ['Cas clinique PTH de 2021 (DEMS)', '#/banque?t=Parathyroide%20(PTH)&n=D&q=66%20ans'], ['Question PTH de 2022 (DEMS)', '#/banque?t=Parathyroide%20(PTH)&n=D&q=recidives']] }
       ] },
       { d: '2026-11-18', lab: 'Mercredi 18 novembre', segs: [
         { id: 's02', bt: ['Coeur/Cardiologie'], h: '8 h – 12 h', t: 'Cardiologie 1 : traceurs, stress, protocoles', dom: 'k',
@@ -33,10 +33,10 @@
           ch: ['O2 : TNE (tumeurs neuroendocrines) et analogues de la somatostatine', 'Tombé en 2022, 2023 et 2025'],
           q: ['Mécanisme de fixation, fixation physiologique et caractéristiques physiques des analogues (pentétréotide, 68Ga-DOTATATE/DOTATOC)', 'Indications de la TEP (tomographie par émission de positons) aux analogues de la somatostatine', 'Pièges et faux positifs'],
           f: ['tne-01', 'tne-05', 'indications-07'], th: [], pdf: [['O2 · TNE et analogues de la somatostatine', ONC + 'O2_TNE_analogues_somatostatine.pdf']] },
-        { id: 's06', bt: ['MIBG', 'RIV (Radio-Immuno-Vectorisation)', 'Neuroblastome'], h: '14 h – 18 h', t: 'MIBG, radiothérapie interne, théranostique', dom: 'o',
-          ch: ['MIBG (méta-iodobenzylguanidine)', 'O3 : RIV (radiothérapie interne vectorisée) et théranostique'],
-          q: ['MIBG : principe, indications (phéochromocytome, neuroblastome), préparation, médicaments interférents', 'Lutétium 177-DOTATATE : critères d’éligibilité, protocole, effets secondaires', 'Définir la théranostique et donner trois exemples'],
-          f: ['tne-03', 'tne-04', 'tne-06', 'riv-01', 'riv-02', 'indications-14'], th: [], pdf: [['O3 · RIV et théranostique', ONC + 'O3_RIV_et_theranostique.pdf']] },
+        { id: 's06', bt: ['Surrenale', 'MIBG', 'RIV (Radio-Immuno-Vectorisation)', 'Neuroblastome'], h: '14 h – 18 h', t: 'MIBG, corticosurrénales, radiothérapie interne, théranostique', dom: 'o',
+          ch: ['MIBG (méta-iodobenzylguanidine)', 'Corticosurrénales : partie II de la fiche « Indications » (iode 131-norcholestérol, adénome de Conn, syndrome de Cushing, phéochromocytome) et cas de 2021', 'O3 : RIV (radiothérapie interne vectorisée) et théranostique'],
+          q: ['Corticosurrénales : quel examen pour l’adénome de Conn, le syndrome de Cushing, le phéochromocytome ?', 'MIBG : principe, indications (phéochromocytome, neuroblastome), préparation, médicaments interférents', 'Lutétium 177-DOTATATE : critères d’éligibilité, protocole, effets secondaires', 'Définir la théranostique et donner trois exemples'],
+          f: ['tne-03', 'tne-04', 'tne-06', 'riv-01', 'riv-02', 'indications-14', 'ctc-01'], th: ['ctc'], pdf: [['O3 · RIV et théranostique', ONC + 'O3_RIV_et_theranostique.pdf']] },
         { id: 's07', bt: ['Thyroide', 'Therapie (Iode131 etc)'], h: '20 h – 00 h', t: 'CPT 1 : prise en charge initiale et irathérapie', dom: 't', oral: true,
           ch: ['T1 : diagnostic, risque, prise en charge initiale', 'T2 : irathérapie', ORAL],
           q: ['Prise en charge du CPT (carcinome papillaire de la thyroïde) à faible risque : place de l’iode 131 et dé-escalade', 'Préparation du patient à l’irathérapie : TSH, régime, isolement, radioprotection', 'Totalisation isotopique : indications, activité, scintigraphie post-thérapeutique'],
@@ -57,10 +57,10 @@
           f: ['indications-11', 'cer-01', 'cer-02', 'cer-03', 'lcr-01'], th: [], pdf: [] }
       ] },
       { d: '2026-11-21', lab: 'Samedi 21 novembre', segs: [
-        { id: 's11', bt: ['Prostate'], h: '8 h – 12 h', t: 'Prostate, PSMA et sein', dom: 'o',
-          ch: ['O4 : prostate et PSMA (antigène membranaire spécifique de la prostate)', 'Fiche « Indications » sein et prostate', 'Cancer du sein : place de la médecine nucléaire (déplacé depuis le mardi 17)'],
-          q: ['Traceurs (68Ga-PSMA, 18F-PSMA, choline) et indications', 'Scintigraphie osseuse dans la prostate : le phénomène de flare', 'Traitement : lutétium 177-PSMA et radium 223 (avec la thérapie osseuse)', 'Cancer du sein : bilan d’extension (quand ?), ganglion sentinelle, TEP au FDG, scintigraphie osseuse'],
-          f: ['prostate-01', 'prostate-02', 'indications-09', 'sein-01'], th: ['sein'], pdf: [['O4 · Prostate', ONC + 'O4_Prostate.pdf']] },
+        { id: 's11', bt: ['Prostate', 'Os'], h: '8 h – 12 h', t: 'Prostate, cancer du sein et os (métastases)', dom: 'o',
+          ch: ['8 h – 9 h 30 : O4, prostate et PSMA (antigène membranaire spécifique de la prostate)', '9 h 30 – 10 h 45 : cancer du sein, place de la médecine nucléaire (fiche « Place de la médecine nucléaire… cancer du sein »)', '10 h 45 – 11 h 30 : os et métastases, scintigraphie osseuse dans le sein et la prostate (O6 et fiche « Scintigraphie osseuse et affections malignes »)', '11 h 30 – 12 h : fiche « Indications » sein et prostate, puis relecture des questions'],
+          q: ['Traceurs (68Ga-PSMA, 18F-PSMA, choline) et indications', 'Scintigraphie osseuse dans la prostate : le phénomène de flare', 'Traitement : lutétium 177-PSMA et radium 223 (avec la thérapie osseuse)', 'Cancer du sein : bilan d’extension (quand ?), ganglion sentinelle, TEP au FDG, scintigraphie osseuse', 'Métastases osseuses : aspects scintigraphiques, superscan, pièges, ostéocondensantes contre ostéolytiques'],
+          f: ['prostate-01', 'prostate-02', 'sein-01', 'os-02', 'os-03', 'indications-09'], th: ['sein'], pdf: [['O4 · Prostate', ONC + 'O4_Prostate.pdf'], ['O6 · Scintigraphie osseuse en oncologie', ONC + 'O6_Scintigraphie_osseuse_en_oncologie.pdf']] },
         { id: 's12', bt: ['TEP', 'Oncologie'], h: '14 h – 18 h', t: 'TEP au FDG en oncologie', dom: 'o',
           ch: ['O5 : TEP au FDG (fluorodésoxyglucose)', 'Fiche « Indications » TEP au FDG en oncologie'],
           q: ['Caractéristiques physiques, principe de détection et préparation du patient', 'SUV (valeur de fixation normalisée), critères de réponse, pièges', 'Indications en oncologie, par cancer'],
@@ -137,5 +137,34 @@
       { n: 'Cours d’origine (PDF complets)', l: [['Parathyroïdes (PTH)', ORIG + 'PTH_parathyroides.pdf']] },
       { n: 'Questions d’examen', l: [['Toutes les questions du rein, par thème', QS + '00_Toutes_les_questions_par_theme.pdf']] }
     ]
+  };
+
+  /* Ma section PTH : page #/pth (déroulé de la soirée du 17, critères pour dire « j’ai fini », cours et questions) */
+  window.MONPTH = {
+    etapes: [
+      { id: 'e1', h: '18 h – 19 h 30', t: 'Le cours et le tableau des indications',
+        d: 'Lire le cours « L’hyperparathyroïdie » : physiologie, formes primaire, secondaire et tertiaire, traitement. Puis apprendre le tableau « situation clinique → examen de choix » de la fiche « Indications ».',
+        f: ['pth-01', 'indications-06'], pdf: [['Cours d’origine : parathyroïdes (PTH)', ORIG + 'PTH_parathyroides.pdf']] },
+      { id: 'e2', h: '19 h 30 – 20 h', t: 'Pause', d: 'Vraie pause : manger, marcher, pas d’écran de cours.' },
+      { id: 'e3', h: '20 h – 21 h', t: 'Traceurs, acquisition et pièges',
+        d: 'Sestamibi marqué au technétium 99m, double phase, soustraction (iode 123 ou pertechnétate), TEMP/TDM (tomographie par émission monophotonique couplée à la tomodensitométrie), TEP à la choline. Puis artefacts, faux positifs et faux négatifs.',
+        f: ['traceurs-10', 'acquisition-07', 'communs-10'] },
+      { id: 'e4', h: '21 h – 22 h', t: 'Le cas de 2021 et la chirurgie',
+        d: 'Écrire de A à Z le cas clinique de 2021 (patiente de 66 ans), puis persistance ou récidive après chirurgie et chirurgie radioguidée.',
+        lk: [['Cas de 2021 (DEMS)', '#/banque?t=Parathyroide%20(PTH)&n=D&q=66%20ans']] },
+      { id: 'e5', h: '22 h – 23 h', t: 'Question longue en 40 minutes, sans fiches',
+        d: 'Au choix : 2022 (méthodologie, intérêts, récidives) ou 2010 (intérêt et place de l’exploration isotopique). Chronométrer, puis corriger avec les fiches.',
+        lk: [['Question de 2022', '#/banque?t=Parathyroide%20(PTH)&n=D&q=recidives'], ['Question de 2010', '#/banque?t=Parathyroide%20(PTH)&n=D&q=place%20actuelle']] },
+      { id: 'e6', h: '23 h – 00 h', t: 'Oral avec Claude', d: 'Jury : une question à la fois, vous répondez à voix haute, puis correction.' }
+    ],
+    criteres: [
+      { id: 'c1', t: 'Expliquer la scintigraphie au sestamibi (99mTc) : mécanisme, double phase, soustraction, TEMP/TDM, indications' },
+      { id: 'c2', t: 'Citer les faux négatifs et les faux positifs, et leurs causes' },
+      { id: 'c3', t: 'Choisir l’examen dans l’hyperparathyroïdie primaire, secondaire, tertiaire, persistante et récidivante' },
+      { id: 'c4', t: 'Rédiger le cas de 2021, de A à Z' },
+      { id: 'c5', t: 'Traiter une question longue de DEMS en 40 minutes, avec un plan' }
+    ],
+    fiches: ['pth-01', 'indications-06', 'traceurs-10', 'acquisition-07', 'communs-10'],
+    sujets: ['pth-01-s1', 'pth-01-s2', 'traceurs-10-s1', 'acquisition-07-s1', 'indications-06-s1']
   };
 })();

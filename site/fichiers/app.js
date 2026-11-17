@@ -176,6 +176,7 @@
     var nav = [
       ['#/', 'Aujourd’hui', ''],
       ['#/monprogramme', 'Mon programme', (function () { var f = mpFlat(); return f.length ? f.filter(function (x) { return mpDone(x.s.id); }).length + '/' + f.length : ''; })()],
+      ['#/pth', 'Parathyroïdes (PTH)', ''],
       ['#/banque', 'Questions de DEMS', ''],
       ['#/mescours', 'Mes cours', ''],
       ['#/defi', 'Défi du jour', (mem.defi || {})[today()] ? 'fait' : (defiStreak() ? 'série ' + defiStreak() : '')],
@@ -1336,6 +1337,47 @@
     $$('[data-jump]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); var el = $('#mp-' + a.dataset.jump); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
     var cur = $('.mpseg.now'); if (cur) setTimeout(function () { cur.scrollIntoView({ block: 'start' }); window.scrollBy(0, -70); }, 60);
   }
+  /* Ma section PTH */
+  function pagePth() {
+    var T = window.MONPTH; if (!T) { main.innerHTML = '<div class="page"><p class="empty">Section PTH absente.</p></div>'; return; }
+    mem.mp = mem.mp || {};
+    var k = function (id) { return 'pth:' + id; };
+    var tot = T.etapes.length + T.criteres.length;
+    function nbDone() { return T.etapes.concat(T.criteres).filter(function (x) { return mem.mp[k(x.id)]; }).length; }
+    var h = '<div class="page wide"><h1 class="title">Parathyroïdes (PTH)</h1>';
+    h += '<p class="lede">Ma section : le déroulé de la soirée du mardi 17 novembre (18 h – 00 h), ce que je dois savoir faire pour dire « j’ai fini », mes cours et toutes les questions de DEMS sur le sujet. Les cases sont enregistrées sur cet appareil.</p>';
+    h += '<div class="kpis mpk"><div><b id="pthn">' + nbDone() + ' / ' + tot + '</b><span>cases cochées</span></div><div><b>' + bqCount(['Parathyroide (PTH)'], 'D') + '</b><span>questions de DEMS</span></div><div><b>' + BQ.filter(function (x) { return x.t === 'Parathyroide (PTH)' && x.l === 'D' && x.a; }).length + '</b><span>avec corrigé type</span></div></div>';
+    h += '<h2 class="sec">Déroulé de la soirée</h2>';
+    T.etapes.forEach(function (e) {
+      var done = !!mem.mp[k(e.id)], L = [];
+      (e.f || []).forEach(function (f) { if (F[f]) L.push('<a class="chip" href="#/fiche/' + f + '">' + esc(F[f].title) + '</a>'); });
+      (e.pdf || []).forEach(function (p) { L.push('<a class="chip pdf" target="_blank" href="' + p[1] + '">PDF · ' + esc(p[0]) + '</a>'); });
+      (e.lk || []).forEach(function (p) { L.push('<a class="chip" href="' + p[1] + '">' + esc(p[0]) + '</a>'); });
+      h += '<article class="mpseg' + (done ? ' done' : '') + '" style="--dc:' + DOMC.e + '"><div class="mphead"><label class="mpck"><input type="checkbox" data-pth="' + e.id + '"' + (done ? ' checked' : '') + '><span>Fait</span></label><span class="mphour num">' + esc(e.h) + '</span><h3>' + esc(e.t) + '</h3></div><p>' + esc(e.d) + '</p>' + (L.length ? '<div class="mplinks">' + L.join('') + '</div>' : '') + '</article>';
+    });
+    h += '<h2 class="sec">J’ai fini quand je sais…</h2><div class="panel">';
+    T.criteres.forEach(function (c) {
+      h += '<label class="mpck" style="display:flex;gap:8px;margin:6px 0"><input type="checkbox" data-pth="' + c.id + '"' + (mem.mp[k(c.id)] ? ' checked' : '') + '><span>' + esc(c.t) + '</span></label>';
+    });
+    h += '</div><h2 class="sec">Mes cours</h2><div class="mplinks">';
+    h += '<a class="chip pdf" target="_blank" href="fichiers/pdf/mes-cours/cours-originaux/PTH_parathyroides.pdf">PDF · Cours d’origine : parathyroïdes (PTH)</a><a class="chip" href="#/theme/pth">Thème : Parathyroïdes</a>';
+    T.fiches.forEach(function (f) { if (F[f]) h += '<a class="chip" href="#/fiche/' + f + '">' + esc(F[f].title) + '</a>'; });
+    h += '</div><h2 class="sec">Sujets rédactionnels sur les parathyroïdes</h2><ul>';
+    T.sujets.forEach(function (id) { if (SUJ[id]) h += '<li><a href="#/sujet/' + id + '">' + esc(SUJ[id].sujet) + '</a></li>'; });
+    h += '</ul><h2 class="sec">Questions de DEMS et pré-DEMS sur les parathyroïdes</h2><p class="small muted">Les questions les plus récentes en premier. « Corrigé type » quand la banque en contient un ; « Je sais » et « À revoir » sont enregistrés.</p>';
+    h += '<div id="bqfreq"></div><p class="small muted" id="bqcount"></p><div id="bqlist"></div><div class="row"><button class="btn" id="bqmore">Afficher la suite</button></div></div>';
+    main.innerHTML = h;
+    bq.th = 'Parathyroide (PTH)'; bq.q = ''; bq.niv = 'DP'; bq.ans = false; bq.lim = 30;
+    $('#bqmore').addEventListener('click', function () { bq.lim += 30; bqRender(); });
+    bqRender();
+    $$('input[data-pth]').forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        if (cb.checked) mem.mp[k(cb.dataset.pth)] = today(); else delete mem.mp[k(cb.dataset.pth)]; save();
+        var art = cb.closest('.mpseg'); if (art) art.classList.toggle('done', cb.checked);
+        $('#pthn').textContent = nbDone() + ' / ' + tot;
+      });
+    });
+  }
   function route0() { renderSide(parseRoute()); }
   function mpTodayHtml() {
     var t = today(), j = MP.jours.filter(function (x) { return x.d === t; })[0]; if (!j) return '';
@@ -1489,13 +1531,14 @@
       case 'pdf': pagePdf(); break;
       case 'planning': pagePlanning(); break;
       case 'monprogramme': pageMonProgramme(); break;
+      case 'pth': pagePth(); break;
       case 'mescours': pageMesCours(); break;
       case 'banque': pageBanque(r.params); break;
       case 'donnees': pageData(r.params); break;
       default: pageToday();
     }
     renderSide(r);
-    var titles = { fiche: r.arg && F[r.arg] ? F[r.arg].title : '', revision: 'Révision', chiffres: 'Chiffres', recherche: 'Recherche', 'a-verifier': 'À vérifier', planning: 'Planning', donnees: 'Réglages', qcm: 'QCM', ouvertes: 'Questions ouvertes', cas: 'Cas cliniques', defi: 'Défi du jour', oral: 'Oral blanc', carte: 'Carte mentale', examen: 'Examen blanc', sujets: 'Sujets rédactionnels', sujet: 'Sujet', erreurs: 'Carnet d’erreurs', stats: 'Statistiques', pdf: 'PDF', programme: 'Programme', monprogramme: 'Mon programme', mescours: 'Mes cours', banque: 'Questions de DEMS et pré-DEMS' };
+    var titles = { fiche: r.arg && F[r.arg] ? F[r.arg].title : '', revision: 'Révision', chiffres: 'Chiffres', recherche: 'Recherche', 'a-verifier': 'À vérifier', planning: 'Planning', donnees: 'Réglages', qcm: 'QCM', ouvertes: 'Questions ouvertes', cas: 'Cas cliniques', defi: 'Défi du jour', oral: 'Oral blanc', carte: 'Carte mentale', examen: 'Examen blanc', sujets: 'Sujets rédactionnels', sujet: 'Sujet', erreurs: 'Carnet d’erreurs', stats: 'Statistiques', pdf: 'PDF', programme: 'Programme', monprogramme: 'Mon programme', pth: 'Parathyroïdes (PTH)', mescours: 'Mes cours', banque: 'Questions de DEMS et pré-DEMS' };
     document.title = (titles[r.name] ? titles[r.name] + ' – ' : '') + 'Révision DEMS';
     if (r.name !== 'fiche' && r.name !== 'revision' && r.name !== 'chiffres') window.scrollTo(0, 0);
   }
