@@ -655,3 +655,12 @@ ul.pdfl.one{columns:1}
 .bqact{display:flex; gap:8px; align-items:center; margin-top:10px}
 @media (max-width:760px){ .mpcols{grid-template-columns:1fr} .mpk{grid-template-columns:1fr} }
 .bqplan{margin:6px 0 0; padding-left:1.3em} .bqplan ul{margin:2px 0 6px; padding-left:1.1em} .bqplan li{margin:2px 0}
+
+/* Mes sections */
+.secgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin: 14px 0 22px; }
+.secard { display: block; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+.secard:hover { border-color: var(--accent, #3d5ba9); transform: translateY(-1px); }
+.secard h3 { margin: 4px 0 6px; }
+.secbar { height: 6px; border-radius: 3px; background: rgba(127, 127, 127, .22); overflow: hidden; }
+.secbar i { display: block; height: 100%; background: var(--accent, #3d5ba9); }
+.secbloc { margin: 22px 0 8px; font-size: 1rem; opacity: .85; }

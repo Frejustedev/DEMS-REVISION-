@@ -12,8 +12,9 @@ Copie PRIVÉE du site public « Révision DEMS » (dépôt Frejustedev/revision-
 
 ## Structure
 - `site/` : tout ce qui est publié (racine web). `index.html`, `sw.js` (hors ligne), `manifest.webmanifest`, `fichiers/`.
-  - `fichiers/app.js` : l'application (un seul fichier, JavaScript sans framework). Les pages privées sont regroupées dans le bloc « PRIVÉ : Mon programme, Mes cours, Banque DEMS » juste avant le routeur : `pageMonProgramme`, `pageMesCours`, `pageBanque`, routes `monprogramme`, `mescours`, `banque`.
+  - `fichiers/app.js` : l'application (un seul fichier, JavaScript sans framework). Les pages privées (dont `pageSections` et `pageSection`) sont regroupées dans le bloc « PRIVÉ : Mon programme, Mes cours, Banque DEMS » juste avant le routeur : `pageMonProgramme`, `pageMesCours`, `pageBanque`, routes `monprogramme`, `mescours`, `banque`.
   - `fichiers/monprogramme.js` : le programme (`window.MONPROG`) : 25 créneaux du 17 au 25 novembre 2026, avec chapitres, questions à savoir, fiches du site (`f`), thèmes (`th`), PDF, liens (`lk`) et thèmes de la banque (`bt`). C'est le fichier à modifier pour changer le programme.
+  - `fichiers/sections.js` : « Mes sections » (`window.MONSEC`), une page par thème complet ouverte par `#/section/<id>` (`pth`, `cardio`, `thyroide`, `pdc`, `os`, `rein`, `tne`), sommaire `#/sections`. Chaque section : déroulé de la journée par étapes (cases à cocher enregistrées dans `mem.mp` sous `<section>:e1…` et `<section>:c1…`), critères « j'ai fini quand je sais… », fiches, PDF, questions de DEMS du thème. C'est le fichier à modifier pour changer le contenu d'une section. Les créneaux de `monprogramme.js` renvoient vers leur section (`lk`).
   - `fichiers/banque.js` : 1 158 questions d'examens (`window.BANQUE`) et rapprochements avec les cours (`window.BANQUE_LIENS`). Généré, ne pas l'éditer à la main.
   - `fichiers/donnees.js` : fiches, QCM, questions ouvertes, sujets, cas (14 Mo, hérité du site public, ne pas modifier).
   - `fichiers/pdf/mes-cours/` : PDF du 14 novembre (cardiologie, oncologie, thyroïde, radioprotection, rein, questions).
