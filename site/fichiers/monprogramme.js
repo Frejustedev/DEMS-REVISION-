@@ -8,8 +8,8 @@
     debut: '2026-11-17',
     jours: [
       { d: '2026-11-17', lab: 'Mardi 17 novembre', segs: [
-        { id: 's01', bt: ['Parathyroide (PTH)', 'Surrenale', 'Prostate'], h: '20 h – 00 h', t: 'Parathyroïdes, place de la MN dans le cancer de la prostate et du sein', dom: 'e', oral: true,
-          ch: ['20 h – 21 h 15 : parathyroïdes (fiche « Indications » PTH, hyperparathyroïdie, cas pratique de 2021)', '21 h 15 – 22 h 15 : place de la médecine nucléaire dans le cancer de la prostate (traceurs, TEP PSMA, os, thérapie)', '22 h 15 – 23 h : place de la médecine nucléaire dans le cancer du sein', '23 h – 00 h : oral avec Claude'],
+        { id: 's01', bt: ['Parathyroide (PTH)', 'Surrenale', 'Prostate'], h: '18 h – 00 h', t: 'Parathyroïdes, place de la MN dans le cancer de la prostate et du sein', dom: 'e', oral: true,
+          ch: ['18 h – 19 h 30 : parathyroïdes (fiche « Indications » PTH, hyperparathyroïdie, cas pratique de 2021)', '20 h – 21 h 30 : place de la médecine nucléaire dans le cancer de la prostate (traceurs, TEP PSMA, os, thérapie)', '21 h 30 – 22 h 30 : place de la médecine nucléaire dans le cancer du sein (pauses de 19 h 30 à 20 h et de 22 h 30 à 23 h)', '23 h – 00 h : oral avec Claude'],
           q: ['Scintigraphie parathyroïdienne : mécanisme du sestamibi marqué au technétium 99m, double phase, soustraction, TEMP/TDM (tomographie par émission monophotonique couplée à la tomodensitométrie), indications', 'Imagerie de l’hyperparathyroïdie primaire puis secondaire : faux négatifs et faux positifs', 'Cancer de la prostate : place de la scintigraphie osseuse, de la TEP à la fluorocholine et de la TEP PSMA (antigène membranaire spécifique de la prostate), lutétium 177-PSMA, radium 223', 'Cancer du sein : bilan d’extension (quand ?), ganglion sentinelle, TEP au FDG (fluorodésoxyglucose), scintigraphie osseuse'],
           f: ['indications-06', 'pth-01', 'prostate-01', 'prostate-02', 'indications-09', 'sein-01'], th: ['ctc'], pdf: [['O4 · Prostate', ONC + 'O4_Prostate.pdf']] }
       ] },
