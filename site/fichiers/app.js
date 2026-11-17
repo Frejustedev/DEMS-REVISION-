@@ -197,9 +197,11 @@
       ['#/pdf', 'Fiches en PDF', ''],
       ['#/donnees', 'Réglages et sauvegarde', '']
     ]);
+    var si = nav.map(function (n) { return n[0]; }).indexOf('#/sections');
+    if (si >= 0) { var sub = (SEC.ordre || []).map(function (id) { var d = secDone(id); return ['#/section/' + id, SEC[id].court || SEC[id].titre, d.n + '/' + d.tot, 'sub']; }); Array.prototype.splice.apply(nav, [si + 1, 0].concat(sub)); }
     $('#nav').innerHTML = nav.map(function (n) {
       var on = (route.name === '' && n[0] === '#/') || (n[0] !== '#/' && (n[0].slice(2) === route.name || n[0].slice(2) === route.name + '/' + route.arg || (route.name === 'sujet' && n[0] === '#/sujets')));
-      return '<a href="' + n[0] + '"' + (on ? ' class="on" aria-current="page"' : '') + '><span>' + n[1] + '</span><span class="count">' + n[2] + '</span></a>';
+      return '<a href="' + n[0] + '"' + (on || n[3] ? ' class="' + (on ? 'on' : '') + (n[3] ? ' sub' : '') + '"' : '') + (on ? ' aria-current="page"' : '') + '><span>' + n[1] + '</span><span class="count">' + n[2] + '</span></a>';
     }).join('');
     var cur = route.name === 'fiche' ? route.arg : null;
     var curTheme = cur && F[cur] ? F[cur].theme : (route.name === 'theme' ? route.arg : null);
@@ -1365,19 +1367,20 @@
     h += '<h2 class="sec">Déroulé</h2>';
     sec.etapes.forEach(function (e, i) {
       var key = 'e' + (i + 1), done = !!mem.mp[secKey(id, key)], L = [];
-      (e.f || []).forEach(function (f) { if (F[f]) L.push('<a class="chip" href="#/fiche/' + f + '">' + esc(F[f].title) + '</a>'); });
-      (e.pdf || []).forEach(function (p) { L.push('<a class="chip pdf" target="_blank" href="' + p[1] + '">PDF · ' + esc(p[0]) + '</a>'); });
+      var C = '';
+      (e.f || []).forEach(function (f) { if (F[f]) C += '<details class="seccours" data-fid="' + f + '"><summary><span class="seck">Cours</span> ' + F[f].th + ' <span class="small muted">' + F[f].np + ' p.</span></summary><div class="seccbody"></div></details>'; });
+      (e.pdf || []).forEach(function (p) { C += '<details class="seccours" data-pdf="' + p[1] + '"><summary><span class="seck pdf">PDF</span> ' + esc(p[0]) + '</summary><div class="seccbody"></div></details>'; });
       (e.lk || []).forEach(function (p) { L.push('<a class="chip" href="' + p[1] + '">' + esc(p[0]) + '</a>'); });
       if (e.bq) L.push('<a class="chip bq" href="' + secBqLink(e.bq) + '">Questions de DEMS' + (e.bq[1] ? ' : ' + esc(e.bq[1]) : '') + ' · ' + bqSearchN(e.bq[0], e.bq[1]) + '</a>');
       if (e.b) h += '<h3 class="secbloc">' + esc(e.b) + '</h3>';
-      h += '<article class="mpseg' + (done ? ' done' : '') + '" style="--dc:' + DOMC.e + '"><div class="mphead"><label class="mpck"><input type="checkbox" data-sec="' + key + '"' + (done ? ' checked' : '') + '><span>Fait</span></label><span class="mphour num">' + esc(e.h) + '</span><h3>' + esc(e.t) + '</h3></div><p>' + esc(e.d) + '</p>' + (L.length ? '<div class="mplinks">' + L.join('') + '</div>' : '') + '</article>';
+      h += '<article class="mpseg' + (done ? ' done' : '') + '" style="--dc:' + DOMC.e + '"><div class="mphead"><label class="mpck"><input type="checkbox" data-sec="' + key + '"' + (done ? ' checked' : '') + '><span>Fait</span></label><span class="mphour num">' + esc(e.h) + '</span><h3>' + esc(e.t) + '</h3></div><p>' + esc(e.d) + '</p>' + (C ? '<div class="seccours-l">' + C + '</div>' : '') + (L.length ? '<div class="mplinks">' + L.join('') + '</div>' : '') + '</article>';
     });
     h += '<h2 class="sec">J’ai fini quand je sais…</h2><div class="panel">';
     sec.criteres.forEach(function (c, i) {
       var key = 'c' + (i + 1);
       h += '<label class="mpck" style="display:flex;gap:8px;margin:6px 0"><input type="checkbox" data-sec="' + key + '"' + (mem.mp[secKey(id, key)] ? ' checked' : '') + '><span>' + esc(c) + '</span></label>';
     });
-    h += '</div><h2 class="sec">Mes cours</h2><div class="mplinks">';
+    h += '</div><h2 class="sec">Index des cours de cette section</h2><p class="small muted">Les cours s’ouvrent directement dans chaque étape ci-dessus ; cette liste ouvre la fiche seule.</p><div class="mplinks">';
     (sec.pdf || []).forEach(function (p) { h += '<a class="chip pdf" target="_blank" href="' + p[1] + '">PDF · ' + esc(p[0]) + '</a>'; });
     (sec.th || []).forEach(function (t) { if (THEMES[t]) h += '<a class="chip" href="#/theme/' + t + '">Thème : ' + esc(THEMES[t].name) + '</a>'; });
     sec.fiches.forEach(function (f) { if (F[f]) h += '<a class="chip" href="#/fiche/' + f + '">' + esc(F[f].title) + '</a>'; });
@@ -1387,6 +1390,19 @@
     h += '<h2 class="sec">Questions de DEMS et pré-DEMS du thème</h2><p class="small muted">Les plus récentes en premier. « Corrigé type » quand la banque en contient un ; « Je sais » et « À revoir » sont enregistrés.</p>';
     h += '<div id="bqfreq"></div><p class="small muted" id="bqcount"></p><div id="bqlist"></div><div class="row"><button class="btn" id="bqmore">Afficher la suite</button></div></div>';
     main.innerHTML = h;
+    $$('details.seccours').forEach(function (dt) {
+      dt.addEventListener('toggle', function () {
+        if (!dt.open || dt.dataset.ok) return; dt.dataset.ok = '1';
+        var b = $('.seccbody', dt);
+        if (dt.dataset.fid) {
+          b.innerHTML = '<p class="small"><a href="#/fiche/' + dt.dataset.fid + '">Ouvrir cette fiche seule (apprendre, notes, écoute)</a></p><article class="fiche">' + F[dt.dataset.fid].html + '</article>';
+          $$('table', b).forEach(function (tb) { var w = document.createElement('div'); w.className = 'tablewrap'; tb.parentNode.insertBefore(w, tb); w.appendChild(tb); });
+          $$('table.qr tr', b).forEach(function (tr) { var td = tr.children[1]; if (td) { td.classList.add('ans', 'hidden'); td.addEventListener('click', function () { td.classList.toggle('hidden'); }); } });
+        } else {
+          b.innerHTML = '<p class="small"><a target="_blank" href="' + dt.dataset.pdf + '">Ouvrir le PDF dans un onglet</a></p><iframe class="secpdf" src="' + dt.dataset.pdf + '" title="PDF du cours"></iframe>';
+        }
+      });
+    });
     function maj() { var d = secDone(id); $('#secn').textContent = d.n + ' / ' + d.tot; }
     maj();
     bq.th = sec.bt; bq.q = ''; bq.niv = 'DP'; bq.ans = false; bq.lim = 30;

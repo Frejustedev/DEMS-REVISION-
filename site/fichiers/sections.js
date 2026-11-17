@@ -16,7 +16,7 @@
     ordre: ['pth', 'cardio', 'thyroide', 'pdc', 'os', 'rein', 'tne'],
 
     pth: {
-      titre: 'Parathyroïdes (PTH)', jour: 'Mardi 17 novembre', slots: ['s01'], th: ['pth'], bt: 'Parathyroide (PTH)',
+      titre: 'Parathyroïdes (PTH)', court: 'PTH · mar. 17', jour: 'Mardi 17 novembre', slots: ['s01'], th: ['pth'], bt: 'Parathyroide (PTH)',
       etapes: [
         { b: 'Soirée (18 h – 00 h)', h: '18 h – 19 h 30', t: 'Le cours et le tableau des indications', d: 'Lire le cours « L’hyperparathyroïdie » : physiologie, formes primaire, secondaire et tertiaire, traitement. Puis apprendre le tableau « situation clinique → examen de choix » de la fiche « Indications ».', f: ['pth-01', 'indications-06'], pdf: [['Cours d’origine : parathyroïdes (PTH)', ORIG + 'PTH_parathyroides.pdf']] },
         { h: '19 h 30 – 20 h', t: 'Pause', d: 'Vraie pause : manger, marcher, pas d’écran de cours.' },
@@ -37,7 +37,7 @@
     },
 
     cardio: {
-      titre: 'Cardiologie nucléaire (myocarde)', jour: 'Mercredi 18 novembre', slots: ['s02', 's03', 's04'], th: ['coeur'], bt: CO,
+      titre: 'Cardiologie nucléaire (myocarde)', court: 'Myocarde · mer. 18', jour: 'Mercredi 18 novembre', slots: ['s02', 's03', 's04'], th: ['coeur'], bt: CO,
       etapes: [
         { b: 'Matin (8 h – 12 h) : traceurs et stress', h: '8 h – 9 h 30', t: 'Traceurs et circulation coronaire', d: 'Sestamibi, tétrofosmine, thallium 201 : mécanisme de fixation, cinétique, dosimétrie, avantages et limites. Circulation et réserve coronaires.', f: ['traceurs-06', 'coeur-04', 'coeur-14'], pdf: [['C1 · Traceurs, stress, protocoles', CAR + 'C1_TSM_traceurs_stress_protocoles.pdf']], bq: [CO, 'coronaire'] },
         { h: '9 h 30 – 11 h', t: 'Techniques de stress', d: 'Effort, stress pharmacologique (vasodilatateurs, dobutamine), critères d’effort suffisant, critères d’arrêt, contre-indications, caféine, protocoles. Sujet tombé en six sessions de DEMS.', f: ['coeur-02', 'coeur-06', 'acquisition-03'], bq: [CO, 'stress'] },
@@ -63,7 +63,7 @@
     },
 
     thyroide: {
-      titre: 'Thyroïde complète', jour: 'Jeudi 19 novembre', slots: ['s05', 's06', 's07'], th: ['cdt'], bt: TH,
+      titre: 'Thyroïde complète', court: 'Thyroïde · jeu. 19', jour: 'Jeudi 19 novembre', slots: ['s05', 's06', 's07'], th: ['cdt'], bt: TH,
       etapes: [
         { b: 'Matin (8 h – 12 h) : scintigraphie, nodules, diagnostic du cancer', h: '8 h – 9 h 30', t: 'Physiologie, traceurs et scintigraphie thyroïdienne', d: 'Physiologie thyroïdienne ; iode 123 et pertechnétate de technétium 99m : principe, protocoles, préparation du patient, médicaments à arrêter ; indications de la scintigraphie.', f: ['traceurs-02', 'acquisition-06', 'indications-05', 'communs-03'], bq: [TH, 'scintigraphie thyroid'] },
         { h: '9 h 30 – 10 h 30', t: 'Nodules thyroïdiens, enfant et hypothyroïdie congénitale', d: 'Place de la scintigraphie dans le nodule ; scintigraphie thyroïdienne de l’enfant (tombée en 2023 et 2024) ; hypothyroïdie congénitale.', f: ['indications-05', 'ped-02'], bq: [TH, 'nodule'] },
@@ -90,7 +90,7 @@
     },
 
     pdc: {
-      titre: 'Poumon, digestif et cerveau', jour: 'Vendredi 20 novembre', slots: ['s08', 's09', 's10'], th: ['poumon', 'dig', 'cer'], bt: PO + '|' + DI + '|' + CE,
+      titre: 'Poumon, digestif et cerveau', court: 'Poumon, digestif, cerveau · ven. 20', jour: 'Vendredi 20 novembre', slots: ['s08', 's09', 's10'], th: ['poumon', 'dig', 'cer'], bt: PO + '|' + DI + '|' + CE,
       etapes: [
         { b: 'Matin (8 h – 12 h) : poumon', h: '8 h – 9 h 30', t: 'Traceurs, acquisition et technique', d: 'Traceurs de perfusion (MAA : macro-agrégats d’albumine) et de ventilation (aérosols, gaz) ; acquisition et technique de la scintigraphie pulmonaire.', f: ['traceurs-05', 'acquisition-04', 'poumon-01'], bq: [PO, 'scintigr'] },
         { h: '9 h 30 – 11 h', t: 'Embolie pulmonaire', d: 'Scintigraphie de ventilation-perfusion dans l’embolie pulmonaire : traceurs, technique, interprétation, place face à l’angioscanner ; embolie chez la femme enceinte.', f: ['poumon-02', 'indications-04'], bq: [PO, 'embolie'] },
@@ -117,7 +117,7 @@
     },
 
     os: {
-      titre: 'Os complet, avec la prostate', jour: 'Dimanche 22 novembre', slots: ['s14', 's15', 's16'], th: ['os', 'prostate'], bt: 'Os|Prostate',
+      titre: 'Os complet, avec la prostate', court: 'Os et prostate · dim. 22', jour: 'Dimanche 22 novembre', slots: ['s14', 's15', 's16'], th: ['os', 'prostate'], bt: 'Os|Prostate',
       etapes: [
         { b: 'Matin (8 h – 12 h) : traceurs et technique', h: '8 h – 9 h 30', t: 'Rappels, traceurs osseux et méthodologie', d: 'Rappels de l’os et des articulations ; 99mTc-HMDP et 18F-NaF : mécanisme, fixation physiologique ; méthodologie en trois temps. Sujet tombé en 2010, 2013, 2023 et 2024.', f: ['rappels-02', 'os-01', 'os-02', 'traceurs-03', 'acquisition-02'], bq: ['Os', 'methodologie'] },
         { h: '9 h 30 – 11 h', t: 'TEMP/TDM et pièges', d: 'TEMP/TDM, superscan, extravasation, contamination urinaire, artefacts.', f: ['os-02', 'communs-07', 'communs-10'], bq: ['Os', 'traceurs'] },
@@ -144,7 +144,7 @@
     },
 
     rein: {
-      titre: 'Rein et voies urinaires complet', jour: 'Lundi 23 novembre', slots: ['s17', 's18', 's19'], th: ['rein'], bt: RE,
+      titre: 'Rein et voies urinaires complet', court: 'Rein · lun. 23', jour: 'Lundi 23 novembre', slots: ['s17', 's18', 's19'], th: ['rein'], bt: RE,
       etapes: [
         { b: 'Matin (8 h – 12 h) : traceurs et scintigraphie dynamique', h: '8 h – 9 h 30', t: 'Rappels et traceurs rénaux', d: 'Anatomie et physiologie du rein ; MAG3, DTPA, DMSA : mécanisme de fixation et choix du traceur.', f: ['rappels-01', 'traceurs-04', 'rein-01'], pdf: [['1 · Radiopharmaceutiques, traceurs', REIN + '01_Radiopharmaceutiques_traceurs.pdf']] },
         { h: '9 h 30 – 11 h', t: 'Scintigraphie dynamique avec furosémide', d: 'Méthodologie, paramètres, contrôle qualité ; scintigraphie rénale dynamique : sujet tombé en 2023 et 2024.', f: ['acquisition-05', 'rein-04'], pdf: [['2 · SRD, méthodologie, furosémide', REIN + '02_SRD_methodologie_furosemide.pdf'], ['3 · Interprétation du rénogramme', REIN + '03_Interpretation_renogramme.pdf']], bq: [RE, 'dynamique'] },
@@ -170,7 +170,7 @@
     },
 
     tne: {
-      titre: 'Tumeurs neuroendocrines complètes', jour: 'Mardi 24 novembre', slots: ['s20', 's21', 's22'], th: ['tne', 'ctc', 'riv', 'nb'], bt: 'TNE (tumeurs neuroendocrines)|Octreoscan|MIBG|Neuroblastome|Surrenale|RIV (Radio-Immuno-Vectorisation)',
+      titre: 'Tumeurs neuroendocrines complètes', court: 'TNE · mar. 24', jour: 'Mardi 24 novembre', slots: ['s20', 's21', 's22'], th: ['tne', 'ctc', 'riv', 'nb'], bt: 'TNE (tumeurs neuroendocrines)|Octreoscan|MIBG|Neuroblastome|Surrenale|RIV (Radio-Immuno-Vectorisation)',
       etapes: [
         { b: 'Matin (8 h – 12 h) : TNE et somatostatine', h: '8 h – 9 h 30', t: 'Rappels et définitions', d: 'Crête neurale, surrénales ; TNE (tumeurs neuroendocrines) : définitions, classification, place de la médecine nucléaire. Sujet tombé en 2012, 2023 et 2024.', f: ['rappels-03', 'tne-01', 'tne-02'], pdf: [['O2 · TNE et analogues de la somatostatine', ONC + 'O2_TNE_analogues_somatostatine.pdf']], bq: ['TNE (tumeurs neuroendocrines)', 'tne'] },
         { h: '9 h 30 – 11 h', t: 'Analogues de la somatostatine', d: 'Octréoscan (pentétréotide), 68Ga-DOTATATE et DOTATOC : mécanisme de fixation, fixation physiologique, caractéristiques physiques. Octréoscan : tombé en 2012, 2013 et 2024.', f: ['tne-05', 'traceurs-10', 'traceurs-11'], bq: ['Octreoscan', 'octreoscan'] },

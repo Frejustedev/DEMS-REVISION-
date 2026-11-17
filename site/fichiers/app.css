@@ -664,3 +664,14 @@ ul.pdfl.one{columns:1}
 .secbar { height: 6px; border-radius: 3px; background: rgba(127, 127, 127, .22); overflow: hidden; }
 .secbar i { display: block; height: 100%; background: var(--accent, #3d5ba9); }
 .secbloc { margin: 22px 0 8px; font-size: 1rem; opacity: .85; }
+#nav a.sub { padding-left: 26px; font-size: .92em; opacity: .95; }
+.seccours-l { margin: 10px 0 4px; display: grid; gap: 6px; }
+.seccours { border: 1px solid var(--line, rgba(127,127,127,.3)); border-radius: 6px; background: var(--surface, transparent); }
+.seccours > summary { cursor: pointer; padding: 9px 12px; font-weight: 600; list-style-position: inside; }
+.seccours[open] > summary { border-bottom: 1px solid var(--line, rgba(127,127,127,.3)); }
+.seccbody { padding: 8px 12px 14px; }
+.seccbody article.fiche { padding: 18px 20px 22px 34px; border: 0; background: transparent; }
+.seccbody article.fiche::before { left: 18px; }
+.seck { display: inline-block; font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; padding: 1px 7px; border-radius: 10px; background: rgba(61,91,169,.14); margin-right: 6px; }
+.seck.pdf { background: rgba(180,84,10,.16); }
+iframe.secpdf { width: 100%; height: 82vh; border: 1px solid var(--line, rgba(127,127,127,.3)); border-radius: 4px; }
