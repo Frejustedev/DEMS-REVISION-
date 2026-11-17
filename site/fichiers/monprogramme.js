@@ -3,15 +3,16 @@
 (function () {
   var P = 'fichiers/pdf/mes-cours/';
   var CAR = P + 'cardiologie/', ONC = P + 'oncologie/', THY = P + 'thyroide/', RP = P + 'radioprotection/', REIN = P + 'rein/', QS = P + 'questions/';
+  var ORIG = P + 'cours-originaux/';
   var ORAL = 'Dernière heure : oral avec Claude';
   window.MONPROG = {
     debut: '2026-11-17',
     jours: [
       { d: '2026-11-17', lab: 'Mardi 17 novembre', segs: [
         { id: 's01', bt: ['Parathyroide (PTH)', 'Surrenale', 'Prostate'], h: '18 h – 00 h', t: 'Parathyroïdes, place de la MN dans le cancer de la prostate et du sein', dom: 'e', oral: true,
-          ch: ['18 h – 19 h 30 : parathyroïdes (fiche « Indications » PTH, hyperparathyroïdie, cas pratique de 2021)', '20 h – 21 h 30 : place de la médecine nucléaire dans le cancer de la prostate (traceurs, TEP PSMA, os, thérapie)', '21 h 30 – 22 h 30 : place de la médecine nucléaire dans le cancer du sein (pauses de 19 h 30 à 20 h et de 22 h 30 à 23 h)', '23 h – 00 h : oral avec Claude'],
+          ch: ['18 h – 19 h 30 : parathyroïdes. Dans l’ordre : le cours « L’hyperparathyroïdie » (primaire, secondaire, tertiaire, traitement), puis la partie parathyroïdes des traceurs endocriniens et des paramètres d’acquisition, puis la fiche « Indications » (synthèse), puis les pièges. Finir par le cas pratique de 2021', '20 h – 21 h 30 : place de la médecine nucléaire dans le cancer de la prostate (traceurs, TEP PSMA, os, thérapie)', '21 h 30 – 22 h 30 : place de la médecine nucléaire dans le cancer du sein (pauses de 19 h 30 à 20 h et de 22 h 30 à 23 h)', '23 h – 00 h : oral avec Claude'],
           q: ['Scintigraphie parathyroïdienne : mécanisme du sestamibi marqué au technétium 99m, double phase, soustraction, TEMP/TDM (tomographie par émission monophotonique couplée à la tomodensitométrie), indications', 'Imagerie de l’hyperparathyroïdie primaire puis secondaire : faux négatifs et faux positifs', 'Cancer de la prostate : place de la scintigraphie osseuse, de la TEP à la fluorocholine et de la TEP PSMA (antigène membranaire spécifique de la prostate), lutétium 177-PSMA, radium 223', 'Cancer du sein : bilan d’extension (quand ?), ganglion sentinelle, TEP au FDG (fluorodésoxyglucose), scintigraphie osseuse'],
-          f: ['indications-06', 'pth-01', 'prostate-01', 'prostate-02', 'indications-09', 'sein-01'], th: ['ctc'], pdf: [['O4 · Prostate', ONC + 'O4_Prostate.pdf']] }
+          f: ['pth-01', 'traceurs-10', 'acquisition-07', 'indications-06', 'communs-10', 'prostate-01', 'prostate-02', 'indications-09', 'sein-01'], th: ['ctc'], pdf: [['Cours d’origine : parathyroïdes (PTH)', ORIG + 'PTH_parathyroides.pdf'], ['O4 · Prostate', ONC + 'O4_Prostate.pdf']], lk: [['Cas clinique PTH de 2021 (DEMS)', '#/banque?t=Parathyroide%20(PTH)&n=D&q=66%20ans']] }
       ] },
       { d: '2026-11-18', lab: 'Mercredi 18 novembre', segs: [
         { id: 's02', bt: ['Coeur/Cardiologie'], h: '8 h – 12 h', t: 'Cardiologie 1 : traceurs, stress, protocoles', dom: 'k',
@@ -133,6 +134,7 @@
       { n: 'Thyroïde', l: [['Toutes les fiches de thyroïde', THY + '00_Thyroide_toutes_les_fiches.pdf'], ['T1 · CDT : diagnostic, risque, prise en charge, suivi', THY + 'T1_CDT_diagnostic_risque_PEC_suivi.pdf'], ['T2 · Irathérapie du CDT', THY + 'T2_Irathe_rapie_du_CDT.pdf'], ['T3 · CDT métastatique et réfractaire', THY + 'T3_CDT_metastatique_refractaire.pdf'], ['T4 · Hyperthyroïdies', THY + 'T4_Hyperthyroidies.pdf']] },
       { n: 'Radioprotection', l: [['R1 · Principes de la radioprotection', RP + 'R1_Principes_de_la_radioprotection.pdf']] },
       { n: 'Rein (fiches à bûcher)', l: [['Fiches à bûcher du cours Khelifa', QS + '06_Fiches_a_bucher_cours_Khelifa.pdf'], ['1 · Radiopharmaceutiques, traceurs', REIN + '01_Radiopharmaceutiques_traceurs.pdf'], ['2 · SRD, méthodologie, furosémide', REIN + '02_SRD_methodologie_furosemide.pdf'], ['3 · Interprétation du rénogramme', REIN + '03_Interpretation_renogramme.pdf'], ['4 · Fonction rénale et drainage (enfant)', REIN + '04_Fonction_renale_et_drainage_enfant.pdf'], ['5 · Hydronéphrose néonatale', REIN + '05_Hydronephrose_neonatale.pdf'], ['6 · Infection urinaire de l’enfant', REIN + '06_Infection_urinaire_enfant.pdf'], ['7 · DMSA, scintigraphie statique', REIN + '07_DMSA_scintigraphie_statique.pdf'], ['8 · HTA rénovasculaire, captopril', REIN + '08_HTA_renovasculaire_captopril.pdf'], ['9 · Cystographie isotopique', REIN + '09_Cystographie_isotopique.pdf'], ['10 · Cas clinique : JPU post-opératoire', REIN + '10_Cas_clinique_JPU_post_operatoire.pdf'], ['11 · DFG isotopique', REIN + '11_DFG_isotopique.pdf'], ['12 · Transplantation rénale', REIN + '12_Transplantation_renale.pdf'], ['13 · Reflux vésico-urétéral', REIN + '13_Reflux_vesico_ureteral_RVU.pdf'], ['14 · Aide-mémoire des chiffres', REIN + '14_Aide_memoire_chiffres.pdf']] },
+      { n: 'Cours d’origine (PDF complets)', l: [['Parathyroïdes (PTH)', ORIG + 'PTH_parathyroides.pdf']] },
       { n: 'Questions d’examen', l: [['Toutes les questions du rein, par thème', QS + '00_Toutes_les_questions_par_theme.pdf']] }
     ]
   };
