@@ -8,10 +8,10 @@
     debut: '2026-11-17',
     jours: [
       { d: '2026-11-17', lab: 'Mardi 17 novembre', segs: [
-        { id: 's01', bt: ['Parathyroide (PTH)', 'Surrenale'], h: '20 h – 00 h', t: 'Parathyroïdes (PTH) et corticosurrénales', dom: 'e', oral: true,
-          ch: ['Fiche « Indications » des parathyroïdes et corticosurrénales', 'Cas pratique de parathyroïde de 2021', ORAL],
-          q: ['Scintigraphie parathyroïdienne : mécanisme du sestamibi marqué au technétium 99m, double phase, soustraction, TEMP/TDM (tomographie par émission monophotonique couplée à la tomodensitométrie), indications', 'Imagerie de l’hyperparathyroïdie primaire puis secondaire : faux négatifs et faux positifs', 'Corticosurrénales : quel examen pour l’adénome de Conn, le syndrome de Cushing, le phéochromocytome ?'],
-          f: ['indications-06', 'pth-01'], th: ['ctc'], pdf: [] }
+        { id: 's01', bt: ['Parathyroide (PTH)', 'Surrenale', 'Prostate'], h: '20 h – 00 h', t: 'Parathyroïdes, place de la MN dans le cancer de la prostate et du sein', dom: 'e', oral: true,
+          ch: ['20 h – 21 h 15 : parathyroïdes (fiche « Indications » PTH, hyperparathyroïdie, cas pratique de 2021)', '21 h 15 – 22 h 15 : place de la médecine nucléaire dans le cancer de la prostate (traceurs, TEP PSMA, os, thérapie)', '22 h 15 – 23 h : place de la médecine nucléaire dans le cancer du sein', '23 h – 00 h : oral avec Claude'],
+          q: ['Scintigraphie parathyroïdienne : mécanisme du sestamibi marqué au technétium 99m, double phase, soustraction, TEMP/TDM (tomographie par émission monophotonique couplée à la tomodensitométrie), indications', 'Imagerie de l’hyperparathyroïdie primaire puis secondaire : faux négatifs et faux positifs', 'Cancer de la prostate : place de la scintigraphie osseuse, de la TEP à la fluorocholine et de la TEP PSMA (antigène membranaire spécifique de la prostate), lutétium 177-PSMA, radium 223', 'Cancer du sein : bilan d’extension (quand ?), ganglion sentinelle, TEP au FDG (fluorodésoxyglucose), scintigraphie osseuse'],
+          f: ['indications-06', 'pth-01', 'prostate-01', 'prostate-02', 'indications-09', 'sein-01'], th: ['ctc'], pdf: [['O4 · Prostate', ONC + 'O4_Prostate.pdf']] }
       ] },
       { d: '2026-11-18', lab: 'Mercredi 18 novembre', segs: [
         { id: 's02', bt: ['Coeur/Cardiologie'], h: '8 h – 12 h', t: 'Cardiologie 1 : traceurs, stress, protocoles', dom: 'k',
